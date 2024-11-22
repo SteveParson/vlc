@@ -342,11 +342,7 @@ static int st_validateServerCertificate (vlc_tls_t *session, vlc_tls_creds_t *cr
              "This problem may be caused by a configuration error "
              "or an attempt to breach your security or your privacy.\n\n"
              "If in doubt, abort now.\n");
-    int answer = vlc_dialog_wait_question(sys->obj,
-                                          VLC_DIALOG_QUESTION_WARNING, _("Abort"),
-                                          _("Accept certificate temporarily"),
-                                          NULL, _("Insecure site"),
-                                          vlc_gettext (msg), hostname);
+    int answer = 1;
     if (answer == 1) {
         msg_Warn(sys->obj, "Proceeding despite of failed certificate validation");
 
